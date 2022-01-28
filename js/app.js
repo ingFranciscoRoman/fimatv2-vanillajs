@@ -20,7 +20,8 @@ botonLoad.addEventListener("click", ()=>{
     })
         .then(respose=>respose.json())
         .then((result) => {
-            if (result.status == "true") {
+            if (result.status) {
+                console.log(result);
                 const { NAME, apellidos } = result.data_solicitud[0].Informacion_general[0];
                 bienvenida.innerHTML = `Hola ${NAME} ${apellidos} List@ para aprender :)`;
                 const asignaturas = result.data_solicitud[0].Asignatura_estudiante;
@@ -66,7 +67,7 @@ function cargarAsigantura(asignaturaID) {
     })
         .then(response => response.json())
         .then((result)=>{
-            if (result.status == "true") {
+            if (result.status) {
                 const dataMateria = result.data_solicitud[0].Material_Consultados;
                 for (let i = 0; i < dataMateria.length; i++) {
                     const { asignatura, nombre, link, tipomaterial } = dataMateria[i];
