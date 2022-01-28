@@ -1,0 +1,21 @@
+:root{
+    --background: rgba(212, 211, 211, 0.356);
+    --header: #1565c0;
+    --textColor: white;
+}
+body{
+    background: var(--background);
+}
+#menu{
+    background: var(--header)!important;
+}
+#title{
+    color: var(--textColor);
+    font-weight: bold;
+}
+.option{
+    color: var(--textColor)!important;
+}
+#menuOpction{
+    background: var(--textColor);
+}
