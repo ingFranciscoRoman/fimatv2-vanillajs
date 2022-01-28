@@ -19,3 +19,8 @@ body{
 #menuOpction{
     background: var(--textColor);
 }
+#columna{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin-bottom: 25px;
+}

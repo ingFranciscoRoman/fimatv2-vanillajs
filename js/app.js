@@ -1,6 +1,8 @@
 
 const botonLoad = document.getElementById('btnLoad');
 const campoEmail = document.getElementById('email');
+const closeModal = document.getElementById('cerrarModal');
+const contAsignatura = document.getElementById('constAsignatura');
 
 botonLoad.addEventListener("click", ()=>{
     let inputEmail = document.getElementById('email').value;
@@ -69,7 +71,15 @@ function cargarAsigantura(asignaturaID) {
                 for (let i = 0; i < dataMateria.length; i++) {
                     const { asignatura, nombre, link, tipomaterial } = dataMateria[i];
                     if (asignaturaID == asignatura) {
-                        console.log(nombre, asignatura, tipomaterial, link);
+                        if (tipomaterial == "video") {
+                            const templateAsig = `
+                                <div class="col col-md-12" id="columna">
+                                    <iframe width="100%" height="250px;" src="${link}" frameborder="0"></iframe>
+                                    <label for="indoData"><strong>${nombre}</strong></label>
+                                </div>
+                                `;
+                            contAsignatura.innerHTML += templateAsig;   
+                        }
                     }
                 }
             }
@@ -85,5 +95,9 @@ campoEmail.addEventListener('keyup', ()=>{
     const clearWelcome = document.getElementById('bienvenida');
     clearApp.innerHTML = "";
     clearWelcome.innerHTML = "";
+});
+
+closeModal.addEventListener('click', ()=>{
+    contAsignatura.innerHTML = "";
 });
 
